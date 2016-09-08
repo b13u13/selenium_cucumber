@@ -4,8 +4,7 @@ Feature: AFR login
  Scenario: I login with valid credential
         Given I navigate to "https://afr.productengine.com"
         And I enter "afr@marchex.com" into input field having id "username"        
-        And I enter "Alexandr0vSKY" into input field having id "password"
+        And I enter "1221212121" into input field having id "password"
         When I click on element having xpath "//*[@id="content"]/form/fieldset/div/button/span"
-        And I wait for 10 sec        
-        #Then I should logged in
-        Then element having xpath ".//*[@id='header']/div[1]/a[2]" should have text as "Sign Out"
+        And I wait for 5 sec     
+        Then element having xpath "//*[@id="content"]/div/div/div/text()" should have text as "Invalid eMail or password. Tip: Password is case-sensitive."

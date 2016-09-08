@@ -25,22 +25,34 @@ Given(/^I open login page$/) do
   step %[I navigate to "https://afr.productengine.com"]
 end
 
-Given(/^I enter my email as "([^"]*)"$/) do |email|
-  step %[I enter "#{email}" into input field having id "username"]      
+Given(/^I see page title as "([^"]*)"$/) do |title|
+  step %[I should see page title as "#{title}"]
 end
 
-Given(/^I enter my pass as "([^"]*)"$/) do |pass|
-  step %[I enter "#{pass}" into input field having id "password"]
+Given(/^I see page header as "([^"]*)"$/) do |header|
+  step %[element having xpath "(.//*[@id='content']/div/h1)" should have text as "#{header}"] 
 end
 
-When(/^I click on sign in button$/) do
-  step %[I click on element having xpath "//*[@id="content"]/form/fieldset/div/button/span"]
+Given(/^I see email input field with id as "([^"]*)"$/) do |email|
+  step %[element having id "#{email}" should be present]
 end
 
-When(/^wait few second$/) do
-	step %[I wait for 3 sec]
+Given(/^I see password input filed with id as "([^"]*)"$/) do |pass|
+  step %[element having id "#{pass}" should be present]
 end
 
-Then(/^I should get logged in$/) do
-  step %[element having xpath ".//*[@id='header']/div[1]/a[2]" should have text as "Sign Out"]
+Given(/^I see forgot password link with text "([^"]*)"$/) do |forgot_link|
+  step %[link having text "#{forgot_link}" should be present]
 end
+
+Given(/^I see unchecked check\-box with id "([^"]*)"$/) do |checkbox_id|
+  step %[checkbox having id "#{checkbox_id}" should be unchecked]
+end
+
+Given(/^I see text as "([^"]*)"$/) do |keep_me_test|
+  step %[element having xpath "(.//*[@id='content']/form/fieldset/label[3]/span[1])" should have text as "#{keep_me_test}"]
+end
+
+Given(/^I see login button$/) do
+  step %[element having xpath "(.//*[@id='content']/form/fieldset/div/button/span)" should be present]
+end  

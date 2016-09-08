@@ -51,6 +51,3 @@ else # else create driver instance for desktop browser
   end
 end
 
- After do
-    $driver.close    
-  end
