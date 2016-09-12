@@ -50,4 +50,3 @@ else # else create driver instance for desktop browser
     Process.exit(0)
   end
 end
-

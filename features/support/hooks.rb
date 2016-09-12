@@ -17,7 +17,7 @@ After do |scenario|
   # the #failed?, #passed? and #exception methods.
 
   if(scenario.failed?)
-    #Do something if scenario fails.
+    step %[I take screenshot]
   end
 end
 
@@ -43,5 +43,5 @@ end
 
 # Quit the selenium driver from the example tests.
 at_exit do
-
+  $driver.close
 end

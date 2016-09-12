@@ -12,5 +12,11 @@ Feature: AFR login page validate
  	And I see text as "Keep me logged in until I sign out"
  	And I see login button
 
+
 Scenario: Invalid login
-	Given I open login page
+	Given I open login page	
+	And I enter invalid login as "test@login.com" in login input field with id as "username"
+	And I enter invalid password as "111111" in password input field with id as "password"
+	When I click on Sign in button
+	And I wait for 1 sec
+	Then I see error message
